@@ -1,29 +1,50 @@
+
 <?php
-// Handle the AJAX request to save settings
+// Handle the AJAX request to save settings.
+if (! defined('ABSPATH')) exit;
+class lkar_settings
+{
 
-class lkar_settings {
-
-    public function __construct() {
-        add_action( 'wp_ajax_lkar_save_settings', array( $this, 'save_settings' ) );
+    public function __construct()
+    {
+        add_action(
+            'wp_ajax_lkar_save_settings',
+            array($this, 'save_settings')
+        );
     }
 
-    public function save_settings() {
-        // Check nonce for security
-        check_ajax_referer( 'lkar_save_settings_nonce', 'security' );
+    public function save_settings()
+    {
 
-        // Get the posted data
-        $password = isset( $_POST['password'] ) ? sanitize_text_field( $_POST['password'] ) : '';
-        $protection_page_id = isset( $_POST['protection_page_id'] ) ? intval( $_POST['protection_page_id'] ) : 0;
-        $page_id = isset( $_POST['page_id'] ) ? intval( $_POST['page_id'] ) : 0;
-        $post_id = isset( $_POST['post_id'] ) ? intval( $_POST['post_id'] ) : 0;
+        // Check nonce for security.
+        check_ajax_referer('lkar_save_settings_nonce', 'security');
 
-        // Save the settings (you can use update_option or a custom table)
-        update_option( 'lkar_password_id', $password );
-        update_option( 'lkar_protection_page_id', $protection_page_id );
-        update_option( 'lkar_page_id', $page_id );
-        update_option( 'lkar_post_id', $post_id );
+        // Get and sanitize the posted data.
+        $password = isset($_POST['password'])
+            ? sanitize_text_field(wp_unslash($_POST['password']))
+            : '';
 
-        // Send a success response
-        wp_send_json_success( array( 'message' => 'Settings saved successfully.' ) );
+        $protection_page_id = isset($_POST['protection_page_id'])
+            ? absint(wp_unslash($_POST['protection_page_id']))
+            : 0;
+
+        $page_id = isset($_POST['page_id'])
+            ? absint(wp_unslash($_POST['page_id']))
+            : 0;
+
+        $post_id = isset($_POST['post_id'])
+            ? absint(wp_unslash($_POST['post_id']))
+            : 0;
+
+        // Save the settings.
+        update_option('lkar_password_id', $password);
+        update_option('lkar_protection_page_id', $protection_page_id);
+        update_option('lkar_page_id', $page_id);
+        update_option('lkar_post_id', $post_id);
+
+        // Send a success response.
+        wp_send_json_success(
+            array('message' => 'Settings saved successfully.')
+        );
     }
 }
