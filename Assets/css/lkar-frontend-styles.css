@@ -1,0 +1,43 @@
+.dashicons-visibility:before
+{
+    content: "\f177";
+}
+
+.lkar-password-wrapper {
+    display: flex;
+    gap: 0;
+    border: 1px solid #000000;
+    min-width: 100%;
+}
+
+button#lkar-password-toggle {
+    border: none;
+    color: black;
+    background: transparent !important;
+}
+
+:focus-visible {
+    outline: none !important;
+}
+
+input#lkar-password-submit {
+    padding: 10px 20px;
+    background-color: #0073aa;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    min-width: 100%;
+}
+
+.lkar-password-wrapper input[type=password] ,  .lkar-password-wrapper input[type=text]{
+    border:none;
+}
+
+.lkar-password-form {
+   display: flex;
+   align-items: start;
+   gap: 10px;
+   flex-direction: column;
+   max-width: 400px;
+   margin: 20px auto;
+}

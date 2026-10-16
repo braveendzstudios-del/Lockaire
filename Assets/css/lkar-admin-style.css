@@ -1,0 +1,92 @@
+/* Admin Styles for Password Page Protector Plugin */
+
+/* General Styles */
+.lkar-content-wrapper{
+    padding: 60px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-top: 30px;
+    flex: 1;
+}
+
+/* Main Heading */
+.wrap h1{
+    font-size: 30px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+
+/*password form styles*/
+.lkar-content-wrapper form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* form field styles */
+.lkar-password-field , .lkar-password-page-selector , 
+.lkar-protection-page-to-protect-selector , .lkar-protection-post-to-protect-selector{
+    display: flex;
+    flex-flow: column;
+    gap: 10px;
+    align-self: flex-start;
+    min-width: 100%;
+}
+
+/*form field labels*/
+.lkar-password-field label , .lkar-password-page-selector label 
+, .lkar-protection-page-to-protect-selector label, .lkar-protection-post-to-protect-selector label{
+    font-size: 20px;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* form field inputs and selects */
+.lkar-password-page-selector select , .lkar-protection-page-to-protect-selector select , 
+.lkar-protection-post-to-protect-selector select{
+    min-width: 100%;
+    box-sizing: border-box;
+    flex:1;
+}
+
+/* password field specific styles */
+.lkar-password-field input[type=password]{
+    min-width: 100%;
+    box-sizing: border-box;
+    flex:1;
+}
+
+/* form buttons */
+button#lkar-save-btn , button#lkar-show-password{
+    max-width: 20%;
+}
+
+/* helper text */
+.lkar-helper-text{
+    font-size: 16px;
+    color: #666;
+    margin: 0!important;
+}
+
+@media all and (max-width:768px){
+
+        .wrap{
+            padding: 20px;
+        }
+        .lkar-content-wrapper{
+            padding: 40px 30px;
+        }
+
+       .wrap h1{
+            font-size: 26px;
+        }
+
+        button#lkar-save-btn , button#lkar-show-password{
+            max-width: 100%;
+        }
+
+
+}
